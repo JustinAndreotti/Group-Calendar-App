@@ -1,2 +1,26 @@
-<h1>SERVER ONLINE</h1>
-<h1><%=calendarData.month[1].startDate%></h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SERVER ONLINE</h1>
+    <div class="calendar-container">
+        <div class="calendar-top-bar">
+            <button class="month-select-left" type="button"> LEFT </button>
+            <p><%= calendarData.month[0].monthName%></p>
+            <button class="month-select-right" type="button"> RIGHT </button>
+        </div>
+        <div class="calendar-day-view">
+            <% for (var i = 0; i < calendarData.month[0].numDays; i++) {%>
+                <div class="day-box"><%= (i+1) %></div>
+            <% } %>
+        </div>
+        <div class=""></div>
+    </div>
+
+    
+</body>
+</html>

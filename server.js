@@ -70,8 +70,9 @@ function createJsonForYear(currentYear) {
     const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
     const numDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    function Month(monthName, start, end) {
+    function Month(monthName, start, end, numDays) {
         this.monthName = monthName;
+        this.numDays = numDays;
         this.startDate = start;
         this.endDate = end;
         this.events = [];
@@ -98,7 +99,7 @@ function createJsonForYear(currentYear) {
         //get start and end date for month "i"
         var startDate = dayNames[new Date(currentYear, i, 1).getDay()];
         var endDate = dayNames[new Date(currentYear, i, numDays[i]).getDay()];
-        var newMonth = new Month(monthNames[i], startDate, endDate);
+        var newMonth = new Month(monthNames[i], startDate, endDate, numDays[i]);
         year.month.push(newMonth);
     }
 
