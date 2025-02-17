@@ -4,6 +4,9 @@ import fs from "fs";
 const app = express();
 const port = 3000;
 
+// using app.use to serve up static CSS files in public/assets/ folder when /public link is called in ejs files
+// app.use("/route", express.static("foldername"));
+app.use('/public', express.static('public'));
 
 app.listen(port, ()=> {
     console.log(`Server running on port ${port}.`);

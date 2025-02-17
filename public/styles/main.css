@@ -1,0 +1,82 @@
+.hero {
+    text-align: center;
+}
+
+
+/* Main Container */
+.calendar-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+/* Month display and Month select bar */
+.calendar-top-bar {
+    display: flex;
+}
+
+.month-select-left {
+    flex: 1;
+    max-width: 100px;
+}
+
+.month-select-right {
+    flex: 1;
+    width: 100px;
+    max-width: 100px;
+}
+
+.calendar-top-bar > p {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-transform: capitalize;
+}
+
+
+
+
+
+/* Day of the week bar */
+.calendar-day-name-bar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    grid-template-rows: 40px;
+    text-align: center;
+}
+
+.calendar-day-name-bar > p {
+    width: 100px;
+}
+
+
+
+
+
+/* All the days shown in the calendar */
+.calendar-day-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-column: 1 / span 7;
+    grid-row: 2 / span 6;
+}
+
+.day-box {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    outline: solid 2px black;
+}
+
+
+
+

@@ -4,23 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href= "/public/styles/main.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
-    <h1>SERVER ONLINE</h1>
+    <h1 class="hero">Group Calendar</h1>
     <div class="calendar-container">
         <div class="calendar-top-bar">
             <button class="month-select-left" type="button"> LEFT </button>
             <p><%= calendarData.month[0].monthName%></p>
             <button class="month-select-right" type="button"> RIGHT </button>
         </div>
-        <div class="calendar-day-view">
-            <% for (var i = 0; i < calendarData.month[0].numDays; i++) {%>
+        <div class="calendar-day-name-bar">
+            <p>Sunday</p>
+            <p>Monday</p>
+            <p>Tuesday</p>
+            <p>Wednesday</p>
+            <p>Thursday</p>
+            <p>Friday</p>
+            <p>Saturday</p>
+        </div>
+
+
+
+        <div class="calendar-day-container">
+            <% for (var i = 0; i < 42; i++) {%>
                 <div class="day-box"><%= (i+1) %></div>
             <% } %>
         </div>
+
+
+
         <div class=""></div>
     </div>
 
     
 </body>
 </html>
+
+<script>
+function generateCalendarDays(daysInMonth, startDate, endDate) {
+    weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    totalSlots = 42;
+    daysCurrMonth = daysInMonth;
+    daysPrevMonth = 0;
+    daysNextMonth = 0;
+
+    //get amount of days needed to show from the previous month
+    for (i=0; i < weekDays.length; i++) {
+        if (weekDays[i] = calendarData.month[0].startDate) {
+            daysPrevMonth = i;
+        }
+    }
+
+    //get amount of days needed to show from the next month
+
+}
+</script>
