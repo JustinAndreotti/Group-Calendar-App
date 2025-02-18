@@ -70,10 +70,24 @@
     grid-row: 2 / span 6;
 }
 
-.day-box {
+.day-box-curr-month {
     width: 100px;
     height: 100px;
     background-color: lightgray;
+    outline: solid 2px black;
+}
+
+.day-box-prev-month {
+    width: 100px;
+    height: 100px;
+    background-color: whitesmoke;
+    outline: solid 2px black;
+}
+
+.day-box-next-month {
+    width: 100px;
+    height: 100px;
+    background-color: whitesmoke;
     outline: solid 2px black;
 }
 

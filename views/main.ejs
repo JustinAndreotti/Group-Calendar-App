@@ -8,6 +8,9 @@
     <link href= "/public/styles/main.css" rel="stylesheet" type="text/css" />
 
 </head>
+
+
+
 <body>
     <h1 class="hero">Group Calendar</h1>
     <div class="calendar-container">
@@ -29,9 +32,21 @@
 
 
         <div class="calendar-day-container">
-            <% for (var i = 0; i < 42; i++) {%>
-                <div class="day-box"><%= (i+1) %></div>
+            <% //generate previous month day-boxes %>
+            <% for (var i = dayLayout[0]; i > 0; i--) { %>
+                <div class="day-box-prev-month"><%= (calendarData.month[11].numDays - (i-1)) %></div>
             <% } %>
+
+            <% //generate this month's day-boxes %>
+            <% for (var i = 0; i < dayLayout[1]; i++) { %>
+                <div class="day-box-curr-month"><%= (i+1) %></div>
+            <% } %>
+
+            <% //generate next month's day-boces %>
+            <% for (var i = 0; i < dayLayout[2]; i++) { %>
+                <div class="day-box-next-month"><%= (i+1) %></div>
+            <% } %>
+            
         </div>
 
 
@@ -43,22 +58,3 @@
 </body>
 </html>
 
-<script>
-function generateCalendarDays(daysInMonth, startDate, endDate) {
-    weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-    totalSlots = 42;
-    daysCurrMonth = daysInMonth;
-    daysPrevMonth = 0;
-    daysNextMonth = 0;
-
-    //get amount of days needed to show from the previous month
-    for (i=0; i < weekDays.length; i++) {
-        if (weekDays[i] = calendarData.month[0].startDate) {
-            daysPrevMonth = i;
-        }
-    }
-
-    //get amount of days needed to show from the next month
-
-}
-</script>

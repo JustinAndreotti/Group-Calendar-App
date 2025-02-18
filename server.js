@@ -21,7 +21,7 @@ app.get('/', (req,res) => {
     const data = fs.readFileSync('./data/2025data.json')
     var calendarData =  JSON.parse(data);
     //res.send("Server Online");
-    res.render('main.ejs', {calendarData: calendarData});
+    res.render('main.ejs', {calendarData: calendarData, dayLayout: generateDayLayout()});
     console.log(calendarData)
     console.log('\n');
     console.log(calendarData.month[0].startDate);
@@ -113,4 +113,32 @@ function createJsonForYear(currentYear) {
     console.log(saveData);
     fs.writeFile(`./data/${currentYear}data.json`, saveData, () => {});
    
+}
+
+
+function generateDayLayout(daysInMonth) {
+    var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var calendarData = JSON.parse(fs.readFileSync('./data/2025data.json'))
+    var totalSlots = 42;
+    var daysPrevMonth = 0;
+    var dayLayout = [] //format: prevMonth, currMonth, nextMonth
+
+    //get amount of days needed to show from the previous month
+    for (var i=0; i < dayNames.length; i++) {
+        if (dayNames[i] === calendarData.month[0].startDate) {
+            daysPrevMonth = i;
+        }
+    }
+    dayLayout[0] = daysPrevMonth;
+    console.log("days shown from previous month: " + daysPrevMonth);
+    console.log(dayNames.length);
+
+    //get current month number of days
+    dayLayout[1] = calendarData.month[0].numDays;
+    
+    //get amount of days needed to show from the next month
+    dayLayout[2] = totalSlots - daysPrevMonth - calendarData.month[0].numDays;
+
+    //return array
+    return dayLayout;
 }
