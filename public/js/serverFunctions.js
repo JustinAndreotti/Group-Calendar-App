@@ -1,29 +1,10 @@
+//Project Files
+import * as data from '../../data/data.js'
+
+//Modules and packages
 import fs from "fs";
 
-const dayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const monthNames = [
-  "january",
-  "february",
-  "march",
-  "april",
-  "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december",
-];
-const numDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
 
 export function deleteFile() {
   const dateToday = new Date();

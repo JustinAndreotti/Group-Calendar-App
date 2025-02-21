@@ -1,34 +1,13 @@
-const dayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const monthNames = [
-  "january",
-  "february",
-  "march",
-  "april",
-  "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december",
-];
-const numDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+//Project Files
+import * as data from '../../data/data.js'
+
 
 export function testLog() {
   console.log("Client Functions are successfully linked");
 }
 
 export function changeMonth(month, button) {
-  var monthIndex = monthNames.indexOf(month);
+  var monthIndex = data.monthNames.indexOf(month);
   if (button === "month-select-left") {
     monthIndex = monthIndex - 1;
   } else if (button === "month-select-right") {

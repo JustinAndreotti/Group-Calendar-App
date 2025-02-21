@@ -1,6 +1,10 @@
+//project files
+import * as serverFunctions from "./public/js/serverFunctions.js";
+
+//modules and packages
 import express from "express";
 import fs from "fs";
-import * as serverFunctions from "./public/js/serverFunctions.js";
+
 
 const app = express();
 const port = 3000;
@@ -18,8 +22,8 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  const data = fs.readFileSync("./data/2025data.json");
-  var calendarData = JSON.parse(data);
+  const calData = fs.readFileSync("./data/2025data.json");
+  var calendarData = JSON.parse(calData);
 
   //get the current month for calendar generation
   var currMonth = new Date().getMonth();
