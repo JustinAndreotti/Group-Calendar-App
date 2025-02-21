@@ -1,7 +1,6 @@
 import express from "express";
 import fs from "fs";
 import * as serverFunctions from "./public/js/serverFunctions.js";
-import * as clientFunctions from "./public/js/clientFunctions.js";
 
 const app = express();
 const port = 3000;
@@ -31,7 +30,6 @@ app.get("/", (req, res) => {
     calendarData: calendarData,
     dayLayout: serverFunctions.generateDayLayout(currMonth),
     currMonth: currMonth,
-    clientFunctions: clientFunctions,
   });
 });
 

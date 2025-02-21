@@ -51,7 +51,6 @@ export function createJsonForYear(currentYear) {
     this.numDays = numDays;
     this.startDate = start;
     this.endDate = end;
-    this.events = [];
   }
 
   //Create the file
@@ -111,3 +110,9 @@ export function generateDayLayout(currMonth) {
   return dayLayout;
 }
 
+export function getCalendarData(year) {
+  // turn the JSON for the input year into an object
+  var calendarData = JSON.parse(`../data/${year}data.json`);
+  console.log(calendarData);
+
+}

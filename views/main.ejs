@@ -12,9 +12,9 @@
     <h1 class="hero">Group Calendar</h1>
     <div class="calendar-container">
       <div class="calendar-top-bar">
-        <button class="month-select-left" type="button" onclick="monthClickHelper()"> LEFT </button>
+        <button class="month-select-left" type="button" onclick="monthClickHelper(event)"> LEFT </button>
         <p class="month-title"><%= calendarData.month[currMonth].monthName%></p>
-        <button class="month-select-right" type="button" onclick="monthClickHelper()">RIGHT</button>
+        <button class="month-select-right" type="button" onclick="monthClickHelper(event)">RIGHT</button>
       </div>
       <div class="calendar-day-name-bar">
         <p>Sunday</p>
@@ -48,16 +48,17 @@
     </div>
 
     <script type="module">
-        import {changeMonth} from '../public/js/clientFunctions.js';
+      console.log("Script Loaded");
+      import {changeMonth} from '../public/js/clientFunctions.js';
 
-        function monthClickHelper() {
-          var button = event.target.getAttribute('class');
-          var month = document.querySelector('.month-title').textContent;
-          changeMonth(month, button);
-        }
-  
-        window.monthClickHelper = monthClickHelper; //makes the function findable globally
-                                                    //in this EJS
+      function monthClickHelper() {
+        var button = event.target.getAttribute('class');
+        var month = document.querySelector('.month-title').textContent;
+        changeMonth(month, button);
+      }
+
+      window.monthClickHelper = monthClickHelper; //makes the function findable globally
+                                                  //in this EJS
     </script>
   </body>
 </html>
