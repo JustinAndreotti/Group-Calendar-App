@@ -46,5 +46,4 @@ export function updateCalendarDays(month) {
   const dayContainer = document.querySelector(".calendar-day-container");
   dayContainer.innerHTML = "";
 
-
 }
