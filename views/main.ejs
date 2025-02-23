@@ -13,7 +13,7 @@
     <div class="calendar-container">
       <div class="calendar-top-bar">
         <button class="month-select-left" type="button" onclick="monthClickHelper(event)"> LEFT </button>
-        <p class="month-title"><%= calendarData.month[currMonth].monthName%></p>
+        <p class="month-title"><%= calendarData[currYearIndex].month[currMonth].monthName%></p>
         <button class="month-select-right" type="button" onclick="monthClickHelper(event)">RIGHT</button>
       </div>
       <div class="calendar-day-name-bar">
@@ -26,26 +26,27 @@
         <p>Saturday</p>
       </div>
       
-
-      <div class="calendar-day-container">
-        <%//generate previous month day-boxes%> 
-        <%var dayBackCount = calendarData.month[currMonth - 1].numDays - dayLayout[0];%>  
-        <%for (var i = dayLayout[0]; i > 0; i--) {%>
-        <div class="day-box-prev-month"><%= (dayBackCount + 1) %></div>
-        <% dayBackCount++; %> 
-        <% } %> 
-        
-        <% //generate this month's day-boxes %> 
-        <%for (var i = 0; i < dayLayout[1]; i++) { %>
-        <div class="day-box-curr-month"><%= (i+1) %></div>
-        <% } %> 
-        
-        <% //generate next month's day-boces %> 
-        <% for (var i = 0; i < dayLayout[2]; i++) { %>
-        <div class="day-box-next-month"><%= (i+1) %></div>
-        <% } %>
-      </div>
+      
+    <div class="calendar-day-container">
+      <%//generate previous month day-boxes%> 
+      <%var dayBackCount = calendarData[currYearIndex].month[currMonth - 1].numDays - dayLayout[0];%>  
+      <%for (var i = dayLayout[0]; i > 0; i--) {%>
+      <div class="day-box-prev-month"><%= (dayBackCount + 1) %></div>
+      <% dayBackCount++; %> 
+      <% } %> 
+      
+      <% //generate this month's day-boxes %> 
+      <%for (var i = 0; i < dayLayout[1]; i++) { %>
+      <div class="day-box-curr-month"><%= (i+1) %></div>
+      <% } %> 
+      
+      <% //generate next month's day-boces %> 
+      <% for (var i = 0; i < dayLayout[2]; i++) { %>
+      <div class="day-box-next-month"><%= (i+1) %></div>
+      <% } %>
     </div>
+    </div>
+
 
     <script type="module">
       console.log("Script Loaded");

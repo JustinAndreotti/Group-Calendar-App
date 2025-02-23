@@ -15,3 +15,8 @@ Hold:
     - That data seems to just relate to grabbing the start and end dates for each month as well as the month name itself
 
     NOTE: Holding this since GenerateDayLayout is called on the server only once when the page is initially opened
+
+
+
+
+    Next Commit: Project has been refactored to have a constantly loaded variable that holds formatting data for all years from 2020 to 2035
