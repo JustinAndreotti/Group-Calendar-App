@@ -1,10 +1,8 @@
 //project files
 import * as serverFunctions from "./public/js/serverFunctions.js";
-import * as data from "./data/data.js";
 
 //modules and packages
 import express from "express";
-import fs from "fs";
 
 const app = express();
 const port = 3000;
@@ -24,17 +22,15 @@ app.get("/", (req, res) => {
   var currMonth = currDate.getMonth();
   var currDay = currDate.getDay();
   var currYear = currDate.getFullYear();
+  var yearIndex = serverFunctions.getCurrentYearIndex(currYear);
+  
   //send over the calendarData, currentMonth, currentDay, and dayLayout for initial calendar generation
   res.render("main.ejs", {
     calendarData: calendarData,
-    dayLayout: serverFunctions.generateDayLayout(
-      calendarData,
-      serverFunctions.getCurrentYearIndex(currYear),
-      currMonth
-    ),
+    dayLayout: serverFunctions.generateDayLayout(calendarData, yearIndex, currMonth),
     currMonth: currMonth,
     currDay: currDay,
-    currYearIndex: serverFunctions.getCurrentYearIndex(currYear),
+    currYearIndex: yearIndex,
   });
 });
 

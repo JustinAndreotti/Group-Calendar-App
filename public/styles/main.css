@@ -1,3 +1,7 @@
+body {
+    background-color: darkgrey;
+}
+
 .hero {
     text-align: center;
 }
@@ -39,10 +43,6 @@
     text-transform: capitalize;
 }
 
-
-
-
-
 /* Day of the week bar */
 .calendar-day-name-bar {
     display: grid;
@@ -54,10 +54,6 @@
 .calendar-day-name-bar > p {
     width: 100px;
 }
-
-
-
-
 
 /* All the days shown in the calendar */
 .calendar-day-container {
@@ -71,24 +67,39 @@
 .day-box-curr-month {
     width: 100px;
     height: 100px;
-    background-color: lightgray;
-    outline: solid 2px black;
+    background-color: whitesmoke;
+    outline: solid 2px lightgrey;
 }
 
 .day-box-prev-month {
     width: 100px;
     height: 100px;
     background-color: whitesmoke;
-    outline: solid 2px black;
+    outline: solid 2px lightgrey;
 }
 
 .day-box-next-month {
     width: 100px;
     height: 100px;
     background-color: whitesmoke;
-    outline: solid 2px black;
+    outline: solid 2px lightgrey;
 }
 
 
+.week-days-container {
+    border: solid 20px whitesmoke;
+    background-color: whitesmoke;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 0.3em 0.3em 2em -0.3em black;
+}
 
+.day-num-curr {
+    color: black;
+    margin: 5px;
+}
 
+.day-num-alt {
+    color: lightgrey;
+    margin: 5px;
+}

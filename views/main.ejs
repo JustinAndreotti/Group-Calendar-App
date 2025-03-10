@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <link href="/public/styles/main.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -16,50 +15,54 @@
         <p class="month-title"><%= calendarData[currYearIndex].month[currMonth].monthName%></p>
         <button class="month-select-right" type="button" onclick="monthClickHelper(event)">RIGHT</button>
       </div>
-      <div class="calendar-day-name-bar">
-        <p>Sunday</p>
-        <p>Monday</p>
-        <p>Tuesday</p>
-        <p>Wednesday</p>
-        <p>Thursday</p>
-        <p>Friday</p>
-        <p>Saturday</p>
+
+      <div class="week-days-container">
+        <div class="calendar-day-name-bar">
+          <p>Sunday</p>
+          <p>Monday</p>
+          <p>Tuesday</p>
+          <p>Wednesday</p>
+          <p>Thursday</p>
+          <p>Friday</p>
+          <p>Saturday</p>
+        </div>
+          <div class="calendar-day-container">
+            <%//generate previous month day-boxes%> 
+            <%var dayBackCount = calendarData[currYearIndex].month[currMonth - 1].numDays - dayLayout[0];%>  
+            <%for (var i = dayLayout[0]; i > 0; i--) {%>
+            <div class="day-box-prev-month"><%= (dayBackCount + 1) %></div>
+            <% dayBackCount++; %> 
+            <% } %> 
+            
+            <% //generate this month's day-boxes %> 
+            <%for (var i = 0; i < dayLayout[1]; i++) { %>
+            <div class="day-box-curr-month"><%= (i+1) %></div>
+            <% } %> 
+            
+            <% //generate next month's day-boces %> 
+            <% for (var i = 0; i < dayLayout[2]; i++) { %>
+            <div class="day-box-next-month"><%= (i+1) %></div>
+            <% } %>
+          </div>
+        </div>
       </div>
       
-      
-    <div class="calendar-day-container">
-      <%//generate previous month day-boxes%> 
-      <%var dayBackCount = calendarData[currYearIndex].month[currMonth - 1].numDays - dayLayout[0];%>  
-      <%for (var i = dayLayout[0]; i > 0; i--) {%>
-      <div class="day-box-prev-month"><%= (dayBackCount + 1) %></div>
-      <% dayBackCount++; %> 
-      <% } %> 
-      
-      <% //generate this month's day-boxes %> 
-      <%for (var i = 0; i < dayLayout[1]; i++) { %>
-      <div class="day-box-curr-month"><%= (i+1) %></div>
-      <% } %> 
-      
-      <% //generate next month's day-boces %> 
-      <% for (var i = 0; i < dayLayout[2]; i++) { %>
-      <div class="day-box-next-month"><%= (i+1) %></div>
-      <% } %>
-    </div>
-    </div>
 
 
     <script type="module">
       console.log("Script Loaded");
-      import {changeMonth} from '../public/js/clientFunctions.js';
+      import * as clientFunctions from '../public/js/clientFunctions.js';
+      //makes the function findable globally in this EJS
+      window.monthClickHelper = clientFunctions.monthClickHelper; 
 
-      function monthClickHelper() {
-        var button = event.target.getAttribute('class');
-        var month = document.querySelector('.month-title').textContent;
-        changeMonth(month, button);
-      }
+      clientFunctions.initializeClientSideVariables(
+        <%-JSON.stringify(calendarData)%>, 
+        <%=currYearIndex%>, 
+        <%=currMonth%>, 
+        <%=currDay%>
+      );
 
-      window.monthClickHelper = monthClickHelper; //makes the function findable globally
-                                                  //in this EJS
+      clientFunctions.printVariables();
     </script>
   </body>
 </html>

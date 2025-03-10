@@ -1,9 +1,6 @@
 //Project Files
 import * as data from "../../data/data.js";
 
-//Modules and packages
-import fs from "fs";
-
 export function initializeCalendarData() {
   var calendarData = [];
   for (var i = data.calendarStart; i < data.calendarEnd + 1; i++) {
@@ -65,28 +62,3 @@ export function generateDayLayout(calendarData, yearIndex, currMonth) {
   return dayLayout;
 }
 
-export function eDayLayout(calendarData, currMonth) {
-  var totalSlots = 42;
-  var daysPrevMonth = 0;
-  var dayLayout = []; //format: prevMonth, currMonth, nextMonth
-
-  //get amount of days needed to show from the previous month
-  for (var i = 0; i < dayNames.length; i++) {
-    if (dayNames[i] === calendarData.month[currMonth].startDate) {
-      daysPrevMonth = i;
-    }
-  }
-  dayLayout[0] = daysPrevMonth;
-  console.log("days shown from previous month: " + daysPrevMonth);
-  console.log(dayNames.length);
-
-  //get current month number of days
-  dayLayout[1] = calendarData.month[currMonth].numDays;
-
-  //get amount of days needed to show from the next month
-  dayLayout[2] =
-    totalSlots - daysPrevMonth - calendarData.month[currMonth].numDays;
-
-  //return array
-  return dayLayout;
-}
